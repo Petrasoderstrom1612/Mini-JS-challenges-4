@@ -106,3 +106,23 @@ function authenticationCheck(passCode){
 }
 
 authenticationCheck(3434)
+
+
+/*------------------------ creating Instance and constructors------------------------------*/
+function Character(name){
+    this.name = name,
+    this.collectedItemsArr = []
+    this.addItem = function addItem(item){
+                   this.collectedItemsArr.push(item)
+                     return console.log(`${this.name} has ${this.collectedItemsArr.join(", ")}.`)
+                     // console.log(`${name} now has:`, ...this.collectedItemsArr)  if you want to use spread operator, this will ommit , in between
+                   }
+}
+
+const petra = new Character("Petra",)
+petra.addItem("sweater")
+petra.addItem("wound")
+petra.addItem("cape")
+
+const david = new Character("David")
+david.addItem("flower")
