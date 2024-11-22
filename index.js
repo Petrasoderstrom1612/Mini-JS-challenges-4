@@ -1,13 +1,15 @@
+/*------------------------ DEFAULT PARAMETER ------------------------------*/
+
 const setPermissionLevels = (admin, ...names) => { //instead of names you can write rest, this takes into consideration all parameters after the arguments without ... have been used, here we only have admin as parameter without dots, rest parameter comes always last
     names.forEach((oneName)=> console.log(`Hello ${oneName}, you have been assigned ${admin} rights.`))
 }
 
 setPermissionLevels("admin", "Peter", "Monika", "Hasse")
 
-/*------------------------ christmas cards ------------------------------*/
+/*-----*/ 
 
 function getLabelsHtml(text, sender, ...employees) {   
-    const christmasCards = employees.map((oneEmployee) =>{ //you map over the rest parameter as if the ... werent there, note that it is an array
+    const christmasCards = employees.map((oneEmployee) =>{ //you map over the rest parameter as if the 3dots ... werent there and thewe was instead [], it is an array
     return `<div class="label-card">
        <p>Dear ${oneEmployee.name}</p>
        <p>${text}</p>
@@ -31,7 +33,7 @@ function getLabelsHtml(text, sender, ...employees) {
      {name: 'Harriet'}
      ) 
  
-/*------------------------ spread ------------------------------*/
+/*------------------------ SPREAD OPERATOR ------------------------------*/
 
 const lunchMenu = ['Greek Salad', 'Open Sandwich', 'Parsnip Soup', 'Flatbread and Dip']
 const dinnerMenu = ['Lasagne', 'Strogonoff', 'Tagine', 'Katsu Curry']
@@ -42,13 +44,13 @@ console.log(...lunchMenu) //is not given any type, just the [] is removed from a
 const entireWeddingMenu = [...lunchMenu, ...dinnerMenu, ...sweetMenu] //all 3 arrays concatenated together
 console.log(entireWeddingMenu)
 
-/*-----find lowest & highest price in 4 arrays----*/
 
 const averageSharePriceByMonthQ1 = [109.6, 103.3, 89.4]
 const averageSharePriceByMonthQ2 = [109.3, 126.1, 103.3]
 const averageSharePriceByMonthQ3 = [120.8, 102.3, 106.8]
 const averageSharePriceByMonthQ4 = [110.9, 119.8, 113.7]
 
+/*-----find lowest & highest price in 4 arrays----*/
 function findPriceExtremes(arr){
   
     const highest = Math.min(...arr)
@@ -83,7 +85,8 @@ const profileName = profile.name || profile.nickname //by default use name, if a
 
 console.log(`Hey ${profileName}!`)
 
-/*------------------------ ternary &&------------------------------*/
+/*------------------------ SHORT-CIRCUITING ------------------------------*/
+//if left is true, perform action after &&
 const user ={
     name: "Petra",
     role: "admin"
@@ -107,6 +110,7 @@ function authenticationCheck(passCode){
 
 authenticationCheck(3434)
 
+/*-- CREATING OBJECTS VIA CONSTRUCTORS --*/
 
 /*------------------------ creating Constructor and instances------------------------------*/
 function Character(name){ //with big capital letter
@@ -152,7 +156,7 @@ petra1.addItem1("cape")
 const david1 = new Character1("David")
 david1.addItem1("flower")
 
-/*------------------------ try catch ------------------------------*/
+/*------------------------ TRY CATCH ------------------------------*/
 
 const addTuristCharge = (additionalCharge) => {
     try{
