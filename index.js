@@ -108,8 +108,8 @@ function authenticationCheck(passCode){
 authenticationCheck(3434)
 
 
-/*------------------------ creating Instance and constructors------------------------------*/
-function Character(name){
+/*------------------------ creating Constructor and instances------------------------------*/
+function Character(name){ //with big capital letter
     this.name = name,
     this.collectedItemsArr = []
     this.addItem = function addItem(item){
@@ -121,8 +121,51 @@ function Character(name){
 
 const petra = new Character("Petra",)
 petra.addItem("sweater")
-petra.addItem("wound")
+petra.addItem("wand")
 petra.addItem("cape")
 
 const david = new Character("David")
 david.addItem("flower")
+
+/*------------------------ creating Class (with constructor) and instances------------------------------*/
+//The same constructors as above, just here, you define class instead of Instance. The difference is class has only name in capital letters and curlies. The constructor - fixed word takes in the arguments.
+//All functions are after the constructor without the word function
+
+class Character1{
+    constructor(name1){
+    this.name1 = name1,
+    this.collectedItemsArr1 = []
+    }
+
+    addItem1(item){
+        this.collectedItemsArr1.push(item)
+            return console.log(`${this.name1} has ${this.collectedItemsArr1.join(", ")}.`)
+            // console.log(`${name} now has:`, ...this.collectedItemsArr)  if you want to use spread operator, this will ommit , in between
+    }
+}
+
+const petra1 = new Character1("Petra",)
+petra1.addItem1("sweater")
+petra1.addItem1("wand")
+petra1.addItem1("cape")
+
+const david1 = new Character1("David")
+david1.addItem1("flower")
+
+/*------------------------ try catch ------------------------------*/
+
+const addTuristCharge = (additionalCharge) => {
+    try{
+        if (Number.isInteger(additionalCharge)){
+            console.log(`Total cost is ${100 + additionalCharge}`)
+        } else {
+            throw Error("argument is not a string")
+        }
+    }
+    catch (error){
+        console.log(`error: ${error}`)
+    }
+}
+
+
+addTuristCharge("60")
